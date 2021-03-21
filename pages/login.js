@@ -6,11 +6,9 @@ import Pagination from '../components/pagination';
 import Sidebar from '../components/sidebar';
 import Layout from '../components/layout';
 
-  export default function Home() {
+  export default function Login() {
     return (
     <Layout>
-
-    <Jumbotron/>
 
     <div className="row">
       <div className="col-md-8">
@@ -18,8 +16,6 @@ import Layout from '../components/layout';
           From the Firehose
         </h3>
 
-    <Article/>
-    <Pagination/>
       </div>
 
     <Sidebar/>
