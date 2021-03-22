@@ -5,25 +5,36 @@ import Article from '../components/article'
 import Pagination from '../components/pagination';
 import Sidebar from '../components/sidebar';
 import Layout from '../components/layout';
+import Menu from '../data-dummy/menu.json';
+import Post from '../data-dummy/Post.json'
 
-  export default function Home() {
+  export default function Home({ props }) {
     return (
-    <Layout>
-
+    <Layout LayoutProps = {props.menu} >
     <Jumbotron/>
-
     <div className="row">
       <div className="col-md-8">
         <h3 className="pb-4 mb-4 fst-italic border-bottom">
           From the Firehose
         </h3>
-
-    <Article/>
-    <Pagination/>
+        {
+          props.post.map(p => (
+            <Article key={p.id} post = {p}/>
+          ))
+        }
+        
+        <Pagination/>
       </div>
-
-    <Sidebar/>
+      <Sidebar/>
     </div>
   </Layout>
     )
   }
+Home.getInitialProps = () => {
+  return {
+    props : {
+      menu : Menu,
+      post : Post
+    }
+  }
+}
