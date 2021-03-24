@@ -10,7 +10,8 @@ import Post from '../data-dummy/Post.json'
 
   export default function Home({ props }) {
     return (
-    <Layout LayoutProps = {props.menu} >
+    <Layout LayoutProps = {props.menu}>
+
     <Jumbotron/>
     <div className="row">
       <div className="col-md-8">
