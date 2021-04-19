@@ -1,4 +1,3 @@
-//@ts-nocheck
 import Link from 'next/link'
 export default function Header({ menu }){
     return(
@@ -32,8 +31,8 @@ export default function Header({ menu }){
           <Link href={{
             pathname : '/post/[kategori]',
             query : {kategori :  mn.kode}
-          }}>
-          <a key = {mn.kode} className="p-2 link-secondary">{mn.title}</a>
+          }}  key = {mn.kode}>
+          <a className="p-2 link-secondary">{mn.title}</a>
           </Link>
         ))
       }

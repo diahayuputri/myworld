@@ -8,18 +8,17 @@ import Layout from '../components/layout';
 import Menu from '../data-dummy/menu.json';
 import Post from '../data-dummy/Post.json'
 
-  export default function Home({ props }) {
+  export default function Home({ menu,post }) {
     return (
-    <Layout LayoutProps = {props.menu}>
+    <Layout LayoutProps = {menu}>
 
     <Jumbotron/>
     <div className="row">
       <div className="col-md-8">
         <h3 className="pb-4 mb-4 fst-italic border-bottom">
-          From the Firehose
-        </h3>
+        From the Firehouse</h3>
         {
-          props.post.map(p => (
+          post.map(p => (
             <Article key={p.id} post = {p}/>
           ))
         }
@@ -31,10 +30,12 @@ import Post from '../data-dummy/Post.json'
   </Layout>
     )
   }
-Home.getInitialProps = () => {
+export async function getStaticProps(){
+  const req =await fetch('http://localhost:3000/api/hello')
+  const res =await req.json()
   return {
     props : {
-      menu : Menu,
+      menu : res,
       post : Post
     }
   }
